@@ -74,8 +74,7 @@ namespace WorshipPresenter
             {
                 await mMediaPlayerWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                 {               
-                    Frame mediaPlayerFrame = Window.Current.Content as Frame;
-                    MediaPlayerPage mediaPlayerPage = mediaPlayerFrame.Content as MediaPlayerPage;
+                    MediaPlayerPage mediaPlayerPage = mMediaPlayerFrame.Content as MediaPlayerPage;
                     Grid grid = mediaPlayerPage.Content as Grid;
                     var mediaElement = grid.FindName("MainMediaPlayer") as MediaElement;
                     mediaElement.AutoPlay = false;
@@ -92,8 +91,7 @@ namespace WorshipPresenter
                 case SelectedMediaType.VideoFile:
                     await mMediaPlayerWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                     {
-                        Frame mediaPlayerFrame = Window.Current.Content as Frame;
-                        MediaPlayerPage mediaPlayerPage = mediaPlayerFrame.Content as MediaPlayerPage;
+                        MediaPlayerPage mediaPlayerPage = mMediaPlayerFrame.Content as MediaPlayerPage;
                         Grid grid = mediaPlayerPage.Content as Grid;
                         var mediaElement = grid.FindName("MainMediaPlayer") as MediaElement;
                         mediaElement.Play();
@@ -112,8 +110,7 @@ namespace WorshipPresenter
                 case SelectedMediaType.VideoFile:
                     await mMediaPlayerWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                     {
-                        Frame mediaPlayerFrame = Window.Current.Content as Frame;
-                        MediaPlayerPage mediaPlayerPage = mediaPlayerFrame.Content as MediaPlayerPage;
+                        MediaPlayerPage mediaPlayerPage = mMediaPlayerFrame.Content as MediaPlayerPage;
                         Grid grid = mediaPlayerPage.Content as Grid;
                         var mediaElement = grid.FindName("MainMediaPlayer") as MediaElement;
                         mediaElement.Pause();
@@ -132,8 +129,7 @@ namespace WorshipPresenter
                 case SelectedMediaType.VideoFile:
                     await mMediaPlayerWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                     {
-                        Frame mediaPlayerFrame = Window.Current.Content as Frame;
-                        MediaPlayerPage mediaPlayerPage = mediaPlayerFrame.Content as MediaPlayerPage;
+                        MediaPlayerPage mediaPlayerPage = mMediaPlayerFrame.Content as MediaPlayerPage;
                         Grid grid = mediaPlayerPage.Content as Grid;
                         var mediaElement = grid.FindName("MainMediaPlayer") as MediaElement;
                         mediaElement.Stop();
