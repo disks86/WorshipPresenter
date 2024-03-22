@@ -14,10 +14,12 @@ using Windows.Storage.Pickers;
 using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
+using Windows.UI.WindowManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Hosting;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
@@ -55,11 +57,9 @@ namespace WorshipPresenter
             {
                 mMediaPlayerFrame = new Frame();
                 mMediaPlayerFrame.Navigate(typeof(MediaPlayerPage), null);
-
                 Window.Current.Content = mMediaPlayerFrame;
                 Window.Current.Activate();
                 ApplicationView.GetForCurrentView().Title = "Media Player";
-
                 mMediaPlayerWindowId = ApplicationView.GetForCurrentView().Id;
             });
         }
@@ -73,7 +73,7 @@ namespace WorshipPresenter
             if (file != null)
             {
                 await mMediaPlayerWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                {
+                {               
                     Frame mediaPlayerFrame = Window.Current.Content as Frame;
                     MediaPlayerPage mediaPlayerPage = mediaPlayerFrame.Content as MediaPlayerPage;
                     Grid grid = mediaPlayerPage.Content as Grid;
@@ -82,22 +82,10 @@ namespace WorshipPresenter
                     mediaElement.SetPlaybackSource(MediaSource.CreateFromStorageFile(file));
                     SelectedMediaType = SelectedMediaType.VideoFile;
                 });
-
-
-                bool available = ProjectionManager.ProjectionDisplayAvailable;
-
-                ProjectionManager.ProjectionDisplayAvailableChanged += (s, e) =>
-                {
-                    available = ProjectionManager.ProjectionDisplayAvailable;
-                };
-
-                await ProjectionManager.StartProjectingAsync(mMediaPlayerWindowId, mWindowId);
             }
-
-
         }
 
-        private async void PlayButton_Click(object sender, RoutedEventArgs e)
+        private async void PlayButton_Click(object sender, RoutedEventArgs eventArgs)
         {
             switch (SelectedMediaType)
             {
@@ -117,7 +105,7 @@ namespace WorshipPresenter
             }   
         }
 
-        private async void PauseButton_Click(object sender, RoutedEventArgs e)
+        private async void PauseButton_Click(object sender, RoutedEventArgs eventArgs)
         {
             switch (SelectedMediaType)
             {
@@ -137,7 +125,7 @@ namespace WorshipPresenter
             }
         }
 
-        private async void StopButton_Click(object sender, RoutedEventArgs e)
+        private async void StopButton_Click(object sender, RoutedEventArgs eventArgs)
         {
             switch (SelectedMediaType)
             {
@@ -149,6 +137,29 @@ namespace WorshipPresenter
                         Grid grid = mediaPlayerPage.Content as Grid;
                         var mediaElement = grid.FindName("MainMediaPlayer") as MediaElement;
                         mediaElement.Stop();
+                    });
+                    break;
+                default:
+                    //TODO: handle
+                    break;
+            }
+        }
+
+        private async void Project_Click(object sender, RoutedEventArgs eventArgs)
+        {
+            switch (SelectedMediaType)
+            {
+                case SelectedMediaType.VideoFile:
+                    await mMediaPlayerWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+                    {
+                        bool available = ProjectionManager.ProjectionDisplayAvailable;
+
+                        ProjectionManager.ProjectionDisplayAvailableChanged += (s, e) =>
+                        {
+                            available = ProjectionManager.ProjectionDisplayAvailable;
+                        };
+
+                        await ProjectionManager.StartProjectingAsync(mMediaPlayerWindowId, mWindowId);
                     });
                     break;
                 default:
