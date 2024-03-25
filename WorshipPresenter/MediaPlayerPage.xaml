@@ -9,6 +9,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <MediaElement Name="MainMediaPlayer" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top" Width="Auto" MediaFailed="MainMediaPlayer_MediaFailed"  />
+        <MediaElement Name="MainMediaPlayer" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top" Width="Auto" MediaFailed="MainMediaPlayer_MediaFailed" />
     </Grid>
 </Page>

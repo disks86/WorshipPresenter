@@ -18,7 +18,9 @@
                     <MenuFlyoutItem Name="ExitButton" Text="Exit" Click="ExitButton_Click"></MenuFlyoutItem>
                 </MenuBarItem>
                 <MenuBarItem Title="Playback">
-                    <MenuFlyoutItem Name="Project" Text="Project" Click="Project_Click"></MenuFlyoutItem>
+                    <MenuFlyoutItem Name="StartProjecting" Text="Start Projecting" Click="StartProjecting_Click"></MenuFlyoutItem>
+                    <MenuFlyoutItem Name="StopProjecting" Text="Stop Projecting" Click="StopProjecting_Click"></MenuFlyoutItem>
+                    <MenuFlyoutSeparator></MenuFlyoutSeparator>
                     <MenuFlyoutItem Name="PlayButton" Text="Play" Click="PlayButton_Click"></MenuFlyoutItem>
                     <MenuFlyoutItem Name="PauseButton" Text="Pause" Click="PauseButton_Click"></MenuFlyoutItem>
                     <MenuFlyoutItem Name="StopButton" Text="Stop" Click="StopButton_Click"></MenuFlyoutItem>

@@ -34,16 +34,24 @@ namespace WorshipPresenter
     public sealed partial class MainPage : Page
     {
         int mWindowId = ApplicationView.GetForCurrentView().Id;
-
+        CoreApplicationView mMainWindow = CoreApplication.GetCurrentView();
         CoreApplicationView mMediaPlayerWindow = CoreApplication.CreateNewView();
         Frame mMediaPlayerFrame = null;
         int mMediaPlayerWindowId = 0;
+
+        public DispatcherTimer Timer { get; set; } = new DispatcherTimer() { Interval = TimeSpan.FromSeconds(1)};
 
         internal SelectedMediaType SelectedMediaType { get; set; } = SelectedMediaType.None;
 
         public MainPage()
         {
             this.InitializeComponent();
+            Timer.Tick += Timer_Tick;
+        }
+
+        private void Timer_Tick(object sender, object e)
+        {
+
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs eventArgs)
@@ -141,7 +149,7 @@ namespace WorshipPresenter
             }
         }
 
-        private async void Project_Click(object sender, RoutedEventArgs eventArgs)
+        private async void StartProjecting_Click(object sender, RoutedEventArgs eventArgs)
         {
             switch (SelectedMediaType)
             {
@@ -156,6 +164,29 @@ namespace WorshipPresenter
                         };
 
                         await ProjectionManager.StartProjectingAsync(mMediaPlayerWindowId, mWindowId);
+                    });
+                    break;
+                default:
+                    //TODO: handle
+                    break;
+            }
+        }
+
+        private async void StopProjecting_Click(object sender, RoutedEventArgs eventArgs)
+        {
+            switch (SelectedMediaType)
+            {
+                case SelectedMediaType.VideoFile:
+                    await mMediaPlayerWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+                    {
+                        bool available = ProjectionManager.ProjectionDisplayAvailable;
+
+                        ProjectionManager.ProjectionDisplayAvailableChanged += (s, e) =>
+                        {
+                            available = ProjectionManager.ProjectionDisplayAvailable;
+                        };
+
+                        await ProjectionManager.StopProjectingAsync(mMediaPlayerWindowId, mWindowId);
                     });
                     break;
                 default:
