@@ -13,7 +13,8 @@
             <MenuBar >
                 <MenuBarItem Title="File">
                     <MenuFlyoutSubItem Text="Open">
-                        <MenuFlyoutItem Text="File" Name="OpenFileButton" Click="OpenFileButton_Click"></MenuFlyoutItem>
+                        <MenuFlyoutItem Text="Video File" Name="OpenFileButton" Click="OpenFileButton_Click"></MenuFlyoutItem>
+                        <MenuFlyoutItem Text="DVD" Name="OpenDVDButton" Click="OpenDVDButton_Click"></MenuFlyoutItem>
                     </MenuFlyoutSubItem>
                     <MenuFlyoutItem Name="ExitButton" Text="Exit" Click="ExitButton_Click"></MenuFlyoutItem>
                 </MenuBarItem>
@@ -26,6 +27,17 @@
                     <MenuFlyoutItem Name="StopButton" Text="Stop" Click="StopButton_Click"></MenuFlyoutItem>
                 </MenuBarItem>
             </MenuBar>
+        </Grid>
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Margin="0,20,0,0" Padding="20">
+                <TextBlock x:Name="CurrentlyPlayingTextBlock" FontWeight="Bold" Foreground="Blue" Text=""></TextBlock>
+                <ListView x:Name="TextListView" FontWeight="SemiBold">
+                    <ListViewItem>1. Select something to play (File -> Open -> Video File or File -> Open -> DVD)</ListViewItem>
+                    <ListViewItem>2. Present the video so audience can see. (Playback -> StartProjecting)</ListViewItem>
+                    <ListViewItem>3. Play the video for the audience. (Playback -> Play)</ListViewItem>
+                    <ListViewItem>4. After the performance you can stop presenting or exit the application (Playback -> StopProjecting or File -> Exit)</ListViewItem>
+                </ListView>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

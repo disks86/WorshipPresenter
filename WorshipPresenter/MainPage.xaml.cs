@@ -76,6 +76,9 @@ namespace WorshipPresenter
         {
             var openPicker = new FileOpenPicker();
             openPicker.FileTypeFilter.Add(".mp4");
+            openPicker.FileTypeFilter.Add(".mpg");
+            openPicker.FileTypeFilter.Add(".wmv");
+            openPicker.FileTypeFilter.Add(".vob");
 
             StorageFile file = await openPicker.PickSingleFileAsync();
             if (file != null)
@@ -89,6 +92,35 @@ namespace WorshipPresenter
                     mediaElement.SetPlaybackSource(MediaSource.CreateFromStorageFile(file));
                     SelectedMediaType = SelectedMediaType.VideoFile;
                 });
+                CurrentlyPlayingTextBlock.Text = $"Currently selected '{file.Name}'.";
+            }
+        }
+
+        private async void OpenDVDButton_Click(object sender, RoutedEventArgs e)
+        {
+            DriveInfo[] drives = DriveInfo.GetDrives();
+            foreach (var drive in drives)
+            {
+                var filename = Path.Combine(drive.Name, "VIDEO_TS", "VIDEO_TS.VOB");
+                if (File.Exists(filename))
+                {
+                    var file = await StorageFile.GetFileFromPathAsync(filename);
+                    if (file != null)
+                    {
+                        await mMediaPlayerWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                        {
+                            MediaPlayerPage mediaPlayerPage = mMediaPlayerFrame.Content as MediaPlayerPage;
+                            Grid grid = mediaPlayerPage.Content as Grid;
+                            var mediaElement = grid.FindName("MainMediaPlayer") as MediaElement;
+                            mediaElement.AutoPlay = false;
+
+                            mediaElement.SetPlaybackSource(MediaSource.CreateFromStorageFile(file));
+                            SelectedMediaType = SelectedMediaType.VideoFile;
+                        });
+                        CurrentlyPlayingTextBlock.Text = $"Currently selected '{file.Name}'.";
+                        return;
+                    }
+                }
             }
         }
 
