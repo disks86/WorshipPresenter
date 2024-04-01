@@ -30,7 +30,7 @@ namespace WorshipPresenter
 
         private void MainMediaPlayer_MediaFailed(object sender, ExceptionRoutedEventArgs e)
         {
-
+            var i = 0;
         }
     }
 }

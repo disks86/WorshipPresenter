@@ -79,6 +79,7 @@ namespace WorshipPresenter
             openPicker.FileTypeFilter.Add(".mpg");
             openPicker.FileTypeFilter.Add(".wmv");
             openPicker.FileTypeFilter.Add(".vob");
+            openPicker.FileTypeFilter.Add(".ifo");
 
             StorageFile file = await openPicker.PickSingleFileAsync();
             if (file != null)
@@ -101,7 +102,7 @@ namespace WorshipPresenter
             DriveInfo[] drives = DriveInfo.GetDrives();
             foreach (var drive in drives)
             {
-                var filename = Path.Combine(drive.Name, "VIDEO_TS", "VIDEO_TS.VOB");
+                var filename = Path.Combine(drive.Name, "VIDEO_TS", "VIDEO_TS.IFO");
                 if (File.Exists(filename))
                 {
                     var file = await StorageFile.GetFileFromPathAsync(filename);
