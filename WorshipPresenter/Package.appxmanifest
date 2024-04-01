@@ -10,7 +10,7 @@
   <Identity
     Name="9f048c1c-1f29-4d93-984c-c14b63631e7a"
     Publisher="CN=Christopher Joseph Dean Schaefer"
-    Version="1.0.2.0" />
+    Version="1.0.3.0" />
 
   <mp:PhoneIdentity PhoneProductId="9f048c1c-1f29-4d93-984c-c14b63631e7a" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

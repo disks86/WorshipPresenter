@@ -97,29 +97,54 @@ namespace WorshipPresenter
             }
         }
 
+        private readonly string[] mDrives = new string[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
         private async void OpenDVDButton_Click(object sender, RoutedEventArgs e)
-        {
-            DriveInfo[] drives = DriveInfo.GetDrives();
-            foreach (var drive in drives)
+        {         
+            foreach (var drive in mDrives)
             {
-                var filename = Path.Combine(drive.Name, "VIDEO_TS", "VIDEO_TS.IFO");
-                if (File.Exists(filename))
                 {
-                    var file = await StorageFile.GetFileFromPathAsync(filename);
-                    if (file != null)
+                    var filename1 = String.Concat(drive,":\\VIDEO_TS\\VIDEO_TS.VOB");
+                    if (File.Exists(filename1))
                     {
-                        await mMediaPlayerWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                        var file = await StorageFile.GetFileFromPathAsync(filename1);
+                        if (file != null)
                         {
-                            MediaPlayerPage mediaPlayerPage = mMediaPlayerFrame.Content as MediaPlayerPage;
-                            Grid grid = mediaPlayerPage.Content as Grid;
-                            var mediaElement = grid.FindName("MainMediaPlayer") as MediaElement;
-                            mediaElement.AutoPlay = false;
+                            await mMediaPlayerWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                            {
+                                MediaPlayerPage mediaPlayerPage = mMediaPlayerFrame.Content as MediaPlayerPage;
+                                Grid grid = mediaPlayerPage.Content as Grid;
+                                var mediaElement = grid.FindName("MainMediaPlayer") as MediaElement;
+                                mediaElement.AutoPlay = false;
 
-                            mediaElement.SetPlaybackSource(MediaSource.CreateFromStorageFile(file));
-                            SelectedMediaType = SelectedMediaType.VideoFile;
-                        });
-                        CurrentlyPlayingTextBlock.Text = $"Currently selected '{file.Name}'.";
-                        return;
+                                mediaElement.SetPlaybackSource(MediaSource.CreateFromStorageFile(file));
+                                SelectedMediaType = SelectedMediaType.VideoFile;
+                            });
+                            CurrentlyPlayingTextBlock.Text = $"Currently selected '{file.Name}'.";
+                            return;
+                        }
+                    }
+                }
+
+                {
+                    var filename2 = String.Concat(drive, ":\\VIDEO_TS\\VIDEO_TS.IFO");
+                    if (File.Exists(filename2))
+                    {
+                        var file = await StorageFile.GetFileFromPathAsync(filename2);
+                        if (file != null)
+                        {
+                            await mMediaPlayerWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                            {
+                                MediaPlayerPage mediaPlayerPage = mMediaPlayerFrame.Content as MediaPlayerPage;
+                                Grid grid = mediaPlayerPage.Content as Grid;
+                                var mediaElement = grid.FindName("MainMediaPlayer") as MediaElement;
+                                mediaElement.AutoPlay = false;
+
+                                mediaElement.SetPlaybackSource(MediaSource.CreateFromStorageFile(file));
+                                SelectedMediaType = SelectedMediaType.VideoFile;
+                            });
+                            CurrentlyPlayingTextBlock.Text = $"Currently selected '{file.Name}'.";
+                            return;
+                        }
                     }
                 }
             }
