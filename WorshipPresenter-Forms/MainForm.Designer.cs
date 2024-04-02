@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
@@ -44,8 +45,12 @@
             stopButtonToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
+            timeLabel = new ToolStripStatusLabel();
+            lengthLabel = new ToolStripStatusLabel();
+            titleLabel = new ToolStripStatusLabel();
             openFileDialog1 = new OpenFileDialog();
             instructionLabel = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
@@ -143,7 +148,7 @@
             // 
             // statusStrip1
             // 
-            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
+            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1, timeLabel, lengthLabel, titleLabel });
             statusStrip1.Location = new Point(0, 428);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(799, 22);
@@ -155,6 +160,21 @@
             toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             toolStripStatusLabel1.Size = new Size(39, 17);
             toolStripStatusLabel1.Text = "Ready";
+            // 
+            // timeLabel
+            // 
+            timeLabel.Name = "timeLabel";
+            timeLabel.Size = new Size(0, 17);
+            // 
+            // lengthLabel
+            // 
+            lengthLabel.Name = "lengthLabel";
+            lengthLabel.Size = new Size(0, 17);
+            // 
+            // titleLabel
+            // 
+            titleLabel.Name = "titleLabel";
+            titleLabel.Size = new Size(0, 17);
             // 
             // openFileDialog1
             // 
@@ -171,6 +191,11 @@
             instructionLabel.TabIndex = 2;
             instructionLabel.Text = resources.GetString("instructionLabel.Text");
             // 
+            // timer1
+            // 
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -183,6 +208,7 @@
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
             Text = "MainForm";
+            Shown += MainForm_Shown;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             statusStrip1.ResumeLayout(false);
@@ -210,5 +236,9 @@
         private ToolStripStatusLabel toolStripStatusLabel1;
         private OpenFileDialog openFileDialog1;
         private Label instructionLabel;
+        private System.Windows.Forms.Timer timer1;
+        private ToolStripStatusLabel lengthLabel;
+        private ToolStripStatusLabel timeLabel;
+        private ToolStripStatusLabel titleLabel;
     }
 }
