@@ -15,11 +15,36 @@
 		<UserSecretsId>dotnet-RPGS_Service-A54562B5-2B1C-4417-A434-18936E819B61</UserSecretsId>
 		<LangVersion>default</LangVersion>
 		<EnablePreviewFeatures>true</EnablePreviewFeatures>
+		<ApplicationIcon>PlayButton.ico</ApplicationIcon>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Include="PlayButton.ico" />
+	</ItemGroup>
 	
   <ItemGroup>
+    <PackageReference Include="CDGSharp" Version="0.0.2" />
     <PackageReference Include="LibVLCSharp.WinForms" Version="3.8.2" />
     <PackageReference Include="VideoLAN.LibVLC.Windows" Version="3.0.20" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+	
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>

@@ -104,40 +104,40 @@
             // startProjectingToolStripMenuItem
             // 
             startProjectingToolStripMenuItem.Name = "startProjectingToolStripMenuItem";
-            startProjectingToolStripMenuItem.Size = new Size(180, 22);
+            startProjectingToolStripMenuItem.Size = new Size(152, 22);
             startProjectingToolStripMenuItem.Text = "StartProjecting";
             startProjectingToolStripMenuItem.Click += startProjectingToolStripMenuItem_Click;
             // 
             // stopProjectingToolStripMenuItem
             // 
             stopProjectingToolStripMenuItem.Name = "stopProjectingToolStripMenuItem";
-            stopProjectingToolStripMenuItem.Size = new Size(180, 22);
+            stopProjectingToolStripMenuItem.Size = new Size(152, 22);
             stopProjectingToolStripMenuItem.Text = "StopProjecting";
             stopProjectingToolStripMenuItem.Click += stopProjectingToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(177, 6);
+            toolStripSeparator1.Size = new Size(149, 6);
             // 
             // playButtonToolStripMenuItem
             // 
             playButtonToolStripMenuItem.Name = "playButtonToolStripMenuItem";
-            playButtonToolStripMenuItem.Size = new Size(180, 22);
+            playButtonToolStripMenuItem.Size = new Size(152, 22);
             playButtonToolStripMenuItem.Text = "PlayButton";
             playButtonToolStripMenuItem.Click += playButtonToolStripMenuItem_Click;
             // 
             // pauseButtonToolStripMenuItem
             // 
             pauseButtonToolStripMenuItem.Name = "pauseButtonToolStripMenuItem";
-            pauseButtonToolStripMenuItem.Size = new Size(180, 22);
+            pauseButtonToolStripMenuItem.Size = new Size(152, 22);
             pauseButtonToolStripMenuItem.Text = "PauseButton";
             pauseButtonToolStripMenuItem.Click += pauseButtonToolStripMenuItem_Click;
             // 
             // stopButtonToolStripMenuItem
             // 
             stopButtonToolStripMenuItem.Name = "stopButtonToolStripMenuItem";
-            stopButtonToolStripMenuItem.Size = new Size(180, 22);
+            stopButtonToolStripMenuItem.Size = new Size(152, 22);
             stopButtonToolStripMenuItem.Text = "StopButton";
             stopButtonToolStripMenuItem.Click += stopButtonToolStripMenuItem_Click;
             // 
@@ -179,6 +179,7 @@
             Controls.Add(instructionLabel);
             Controls.Add(statusStrip1);
             Controls.Add(menuStrip1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
             Text = "MainForm";
