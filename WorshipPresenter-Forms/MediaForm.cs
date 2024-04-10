@@ -20,11 +20,13 @@ namespace WorshipPresenter_Forms
             MediaPlayer = new MediaPlayer(LibVLC);
             MediaPlayer.EnableHardwareDecoding = true;
             MediaPlayer.Volume = 100;
+            DefaultFileCache = MediaPlayer.FileCaching;
             InitializeComponent();
             this.videoView1.MediaPlayer = MediaPlayer;
         }
 
         public MediaPlayer MediaPlayer { get; set; }
         public LibVLC LibVLC { get; set; }
+        public uint DefaultFileCache { get; private set; }
     }
 }

@@ -56,6 +56,10 @@
             toolStripMenuItem9 = new ToolStripMenuItem();
             toolStripMenuItem10 = new ToolStripMenuItem();
             toolStripMenuItem11 = new ToolStripMenuItem();
+            fileCachingToolStripMenuItem = new ToolStripMenuItem();
+            offToolStripMenuItem = new ToolStripMenuItem();
+            defaultToolStripMenuItem = new ToolStripMenuItem();
+            maxToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             timeLabel = new ToolStripStatusLabel();
@@ -161,7 +165,7 @@
             // 
             // optionsToolStripMenuItem
             // 
-            optionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { enableHardwareDecodeToolStripMenuItem, volumeToolStripMenuItem });
+            optionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { enableHardwareDecodeToolStripMenuItem, volumeToolStripMenuItem, fileCachingToolStripMenuItem });
             optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             optionsToolStripMenuItem.Size = new Size(61, 20);
             optionsToolStripMenuItem.Text = "Options";
@@ -254,6 +258,36 @@
             toolStripMenuItem11.Size = new Size(180, 22);
             toolStripMenuItem11.Text = "100%";
             toolStripMenuItem11.Click += toolStripMenuItem11_Click;
+            // 
+            // fileCachingToolStripMenuItem
+            // 
+            fileCachingToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { offToolStripMenuItem, defaultToolStripMenuItem, maxToolStripMenuItem });
+            fileCachingToolStripMenuItem.Name = "fileCachingToolStripMenuItem";
+            fileCachingToolStripMenuItem.Size = new Size(206, 22);
+            fileCachingToolStripMenuItem.Text = "File Caching";
+            // 
+            // offToolStripMenuItem
+            // 
+            offToolStripMenuItem.Name = "offToolStripMenuItem";
+            offToolStripMenuItem.Size = new Size(180, 22);
+            offToolStripMenuItem.Text = "Off";
+            offToolStripMenuItem.Click += offToolStripMenuItem_Click;
+            // 
+            // defaultToolStripMenuItem
+            // 
+            defaultToolStripMenuItem.Checked = true;
+            defaultToolStripMenuItem.CheckState = CheckState.Checked;
+            defaultToolStripMenuItem.Name = "defaultToolStripMenuItem";
+            defaultToolStripMenuItem.Size = new Size(180, 22);
+            defaultToolStripMenuItem.Text = "Default";
+            defaultToolStripMenuItem.Click += defaultToolStripMenuItem_Click;
+            // 
+            // maxToolStripMenuItem
+            // 
+            maxToolStripMenuItem.Name = "maxToolStripMenuItem";
+            maxToolStripMenuItem.Size = new Size(180, 22);
+            maxToolStripMenuItem.Text = "Max";
+            maxToolStripMenuItem.Click += maxToolStripMenuItem_Click;
             // 
             // statusStrip1
             // 
@@ -362,5 +396,9 @@
         private ToolStripMenuItem toolStripMenuItem9;
         private ToolStripMenuItem toolStripMenuItem10;
         private ToolStripMenuItem toolStripMenuItem11;
+        private ToolStripMenuItem fileCachingToolStripMenuItem;
+        private ToolStripMenuItem offToolStripMenuItem;
+        private ToolStripMenuItem defaultToolStripMenuItem;
+        private ToolStripMenuItem maxToolStripMenuItem;
     }
 }

@@ -330,5 +330,32 @@ namespace WorshipPresenter_Forms
 
             MediaForm.MediaPlayer.Volume = 100;
         }
+
+        private void offToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            offToolStripMenuItem.Checked = true;
+            defaultToolStripMenuItem.Checked = false;
+            maxToolStripMenuItem.Checked = false;
+
+            MediaForm.MediaPlayer.FileCaching = 0;
+        }
+
+        private void defaultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            offToolStripMenuItem.Checked = false;
+            defaultToolStripMenuItem.Checked = true;
+            maxToolStripMenuItem.Checked = false;
+
+            MediaForm.MediaPlayer.FileCaching = MediaForm.DefaultFileCache;
+        }
+
+        private void maxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            offToolStripMenuItem.Checked = false;
+            defaultToolStripMenuItem.Checked = false;
+            maxToolStripMenuItem.Checked = true;
+
+            MediaForm.MediaPlayer.FileCaching = 60000;
+        }
     }
 }
