@@ -18,6 +18,8 @@ namespace WorshipPresenter_Forms
             Core.Initialize();
             LibVLC = new LibVLC();
             MediaPlayer = new MediaPlayer(LibVLC);
+            MediaPlayer.EnableHardwareDecoding = true;
+            MediaPlayer.Volume = 100;
             InitializeComponent();
             this.videoView1.MediaPlayer = MediaPlayer;
         }

@@ -20,7 +20,7 @@ namespace WorshipPresenter_Forms
             {
                 CurrentMediaFilename = openFileDialog1.FileName;
                 MediaForm.MediaPlayer.Media = new Media(MediaForm.LibVLC, new Uri(CurrentMediaFilename));
-                
+
                 try
                 {
                     CurrentMediaFilename = Path.GetFileName(CurrentMediaFilename);
@@ -109,7 +109,7 @@ namespace WorshipPresenter_Forms
             MediaForm.MediaPlayer.Paused += MediaPlayer_Paused;
             MediaForm.MediaPlayer.Stopped += MediaPlayer_Stopped;
             MediaForm.MediaPlayer.Opening += MediaPlayer_Opening;
-            MediaForm.MediaPlayer.TimeChanged += MediaPlayer_TimeChanged;
+            //MediaForm.MediaPlayer.TimeChanged += MediaPlayer_TimeChanged;
             MediaForm.MediaPlayer.TitleChanged += MediaPlayer_TitleChanged;
         }
 
@@ -164,6 +164,171 @@ namespace WorshipPresenter_Forms
         private void MediaPlayer_LengthChanged(object? sender, MediaPlayerLengthChangedEventArgs e)
         {
             lengthLabel.Text = $"Length:{e.Length}";
+        }
+
+        private void enableHardwareDecodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MediaForm.MediaPlayer.EnableHardwareDecoding = enableHardwareDecodeToolStripMenuItem.Checked;
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            toolStripMenuItem2.Checked = true;
+            toolStripMenuItem3.Checked = false;
+            toolStripMenuItem4.Checked = false;
+            toolStripMenuItem5.Checked = false;
+            toolStripMenuItem6.Checked = false;
+            toolStripMenuItem7.Checked = false;
+            toolStripMenuItem8.Checked = false;
+            toolStripMenuItem9.Checked = false;
+            toolStripMenuItem10.Checked = false;
+            toolStripMenuItem11.Checked = false;
+
+            MediaForm.MediaPlayer.Volume = 10;
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            toolStripMenuItem2.Checked = false;
+            toolStripMenuItem3.Checked = true;
+            toolStripMenuItem4.Checked = false;
+            toolStripMenuItem5.Checked = false;
+            toolStripMenuItem6.Checked = false;
+            toolStripMenuItem7.Checked = false;
+            toolStripMenuItem8.Checked = false;
+            toolStripMenuItem9.Checked = false;
+            toolStripMenuItem10.Checked = false;
+            toolStripMenuItem11.Checked = false;
+
+            MediaForm.MediaPlayer.Volume = 20;
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            toolStripMenuItem2.Checked = false;
+            toolStripMenuItem3.Checked = false;
+            toolStripMenuItem4.Checked = true;
+            toolStripMenuItem5.Checked = false;
+            toolStripMenuItem6.Checked = false;
+            toolStripMenuItem7.Checked = false;
+            toolStripMenuItem8.Checked = false;
+            toolStripMenuItem9.Checked = false;
+            toolStripMenuItem10.Checked = false;
+            toolStripMenuItem11.Checked = false;
+
+            MediaForm.MediaPlayer.Volume = 30;
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            toolStripMenuItem2.Checked = false;
+            toolStripMenuItem3.Checked = false;
+            toolStripMenuItem4.Checked = false;
+            toolStripMenuItem5.Checked = true;
+            toolStripMenuItem6.Checked = false;
+            toolStripMenuItem7.Checked = false;
+            toolStripMenuItem8.Checked = false;
+            toolStripMenuItem9.Checked = false;
+            toolStripMenuItem10.Checked = false;
+            toolStripMenuItem11.Checked = false;
+
+            MediaForm.MediaPlayer.Volume = 40;
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            toolStripMenuItem2.Checked = false;
+            toolStripMenuItem3.Checked = false;
+            toolStripMenuItem4.Checked = false;
+            toolStripMenuItem5.Checked = false;
+            toolStripMenuItem6.Checked = true;
+            toolStripMenuItem7.Checked = false;
+            toolStripMenuItem8.Checked = false;
+            toolStripMenuItem9.Checked = false;
+            toolStripMenuItem10.Checked = false;
+            toolStripMenuItem11.Checked = false;
+
+            MediaForm.MediaPlayer.Volume = 50;
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            toolStripMenuItem2.Checked = false;
+            toolStripMenuItem3.Checked = false;
+            toolStripMenuItem4.Checked = false;
+            toolStripMenuItem5.Checked = false;
+            toolStripMenuItem6.Checked = false;
+            toolStripMenuItem7.Checked = true;
+            toolStripMenuItem8.Checked = false;
+            toolStripMenuItem9.Checked = false;
+            toolStripMenuItem10.Checked = false;
+            toolStripMenuItem11.Checked = false;
+
+            MediaForm.MediaPlayer.Volume = 60;
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            toolStripMenuItem2.Checked = false;
+            toolStripMenuItem3.Checked = false;
+            toolStripMenuItem4.Checked = false;
+            toolStripMenuItem5.Checked = false;
+            toolStripMenuItem6.Checked = false;
+            toolStripMenuItem7.Checked = false;
+            toolStripMenuItem8.Checked = true;
+            toolStripMenuItem9.Checked = false;
+            toolStripMenuItem10.Checked = false;
+            toolStripMenuItem11.Checked = false;
+
+            MediaForm.MediaPlayer.Volume = 70;
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            toolStripMenuItem2.Checked = false;
+            toolStripMenuItem3.Checked = false;
+            toolStripMenuItem4.Checked = false;
+            toolStripMenuItem5.Checked = false;
+            toolStripMenuItem6.Checked = false;
+            toolStripMenuItem7.Checked = false;
+            toolStripMenuItem8.Checked = false;
+            toolStripMenuItem9.Checked = true;
+            toolStripMenuItem10.Checked = false;
+            toolStripMenuItem11.Checked = false;
+
+            MediaForm.MediaPlayer.Volume = 80;
+        }
+
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            toolStripMenuItem2.Checked = false;
+            toolStripMenuItem3.Checked = false;
+            toolStripMenuItem4.Checked = false;
+            toolStripMenuItem5.Checked = false;
+            toolStripMenuItem6.Checked = false;
+            toolStripMenuItem7.Checked = false;
+            toolStripMenuItem8.Checked = false;
+            toolStripMenuItem9.Checked = false;
+            toolStripMenuItem10.Checked = true;
+            toolStripMenuItem11.Checked = false;
+
+            MediaForm.MediaPlayer.Volume = 90;
+        }
+
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            toolStripMenuItem2.Checked = false;
+            toolStripMenuItem3.Checked = false;
+            toolStripMenuItem4.Checked = false;
+            toolStripMenuItem5.Checked = false;
+            toolStripMenuItem6.Checked = false;
+            toolStripMenuItem7.Checked = false;
+            toolStripMenuItem8.Checked = false;
+            toolStripMenuItem9.Checked = false;
+            toolStripMenuItem10.Checked = false;
+            toolStripMenuItem11.Checked = true;
+
+            MediaForm.MediaPlayer.Volume = 100;
         }
     }
 }

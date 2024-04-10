@@ -43,6 +43,19 @@
             playButtonToolStripMenuItem = new ToolStripMenuItem();
             pauseButtonToolStripMenuItem = new ToolStripMenuItem();
             stopButtonToolStripMenuItem = new ToolStripMenuItem();
+            optionsToolStripMenuItem = new ToolStripMenuItem();
+            enableHardwareDecodeToolStripMenuItem = new ToolStripMenuItem();
+            volumeToolStripMenuItem = new ToolStripMenuItem();
+            toolStripMenuItem2 = new ToolStripMenuItem();
+            toolStripMenuItem3 = new ToolStripMenuItem();
+            toolStripMenuItem4 = new ToolStripMenuItem();
+            toolStripMenuItem5 = new ToolStripMenuItem();
+            toolStripMenuItem6 = new ToolStripMenuItem();
+            toolStripMenuItem7 = new ToolStripMenuItem();
+            toolStripMenuItem8 = new ToolStripMenuItem();
+            toolStripMenuItem9 = new ToolStripMenuItem();
+            toolStripMenuItem10 = new ToolStripMenuItem();
+            toolStripMenuItem11 = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             timeLabel = new ToolStripStatusLabel();
@@ -57,7 +70,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, playbackToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, playbackToolStripMenuItem, optionsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(799, 24);
@@ -129,22 +142,118 @@
             // 
             playButtonToolStripMenuItem.Name = "playButtonToolStripMenuItem";
             playButtonToolStripMenuItem.Size = new Size(152, 22);
-            playButtonToolStripMenuItem.Text = "PlayButton";
+            playButtonToolStripMenuItem.Text = "Play";
             playButtonToolStripMenuItem.Click += playButtonToolStripMenuItem_Click;
             // 
             // pauseButtonToolStripMenuItem
             // 
             pauseButtonToolStripMenuItem.Name = "pauseButtonToolStripMenuItem";
             pauseButtonToolStripMenuItem.Size = new Size(152, 22);
-            pauseButtonToolStripMenuItem.Text = "PauseButton";
+            pauseButtonToolStripMenuItem.Text = "Pause";
             pauseButtonToolStripMenuItem.Click += pauseButtonToolStripMenuItem_Click;
             // 
             // stopButtonToolStripMenuItem
             // 
             stopButtonToolStripMenuItem.Name = "stopButtonToolStripMenuItem";
             stopButtonToolStripMenuItem.Size = new Size(152, 22);
-            stopButtonToolStripMenuItem.Text = "StopButton";
+            stopButtonToolStripMenuItem.Text = "Stop";
             stopButtonToolStripMenuItem.Click += stopButtonToolStripMenuItem_Click;
+            // 
+            // optionsToolStripMenuItem
+            // 
+            optionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { enableHardwareDecodeToolStripMenuItem, volumeToolStripMenuItem });
+            optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            optionsToolStripMenuItem.Size = new Size(61, 20);
+            optionsToolStripMenuItem.Text = "Options";
+            // 
+            // enableHardwareDecodeToolStripMenuItem
+            // 
+            enableHardwareDecodeToolStripMenuItem.Checked = true;
+            enableHardwareDecodeToolStripMenuItem.CheckOnClick = true;
+            enableHardwareDecodeToolStripMenuItem.CheckState = CheckState.Checked;
+            enableHardwareDecodeToolStripMenuItem.Name = "enableHardwareDecodeToolStripMenuItem";
+            enableHardwareDecodeToolStripMenuItem.Size = new Size(206, 22);
+            enableHardwareDecodeToolStripMenuItem.Text = "Enable Hardware Decode";
+            enableHardwareDecodeToolStripMenuItem.Click += enableHardwareDecodeToolStripMenuItem_Click;
+            // 
+            // volumeToolStripMenuItem
+            // 
+            volumeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem2, toolStripMenuItem3, toolStripMenuItem4, toolStripMenuItem5, toolStripMenuItem6, toolStripMenuItem7, toolStripMenuItem8, toolStripMenuItem9, toolStripMenuItem10, toolStripMenuItem11 });
+            volumeToolStripMenuItem.Name = "volumeToolStripMenuItem";
+            volumeToolStripMenuItem.Size = new Size(206, 22);
+            volumeToolStripMenuItem.Text = "Volume";
+            // 
+            // toolStripMenuItem2
+            // 
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new Size(180, 22);
+            toolStripMenuItem2.Text = "10%";
+            toolStripMenuItem2.Click += toolStripMenuItem2_Click;
+            // 
+            // toolStripMenuItem3
+            // 
+            toolStripMenuItem3.Name = "toolStripMenuItem3";
+            toolStripMenuItem3.Size = new Size(180, 22);
+            toolStripMenuItem3.Text = "20%";
+            toolStripMenuItem3.Click += toolStripMenuItem3_Click;
+            // 
+            // toolStripMenuItem4
+            // 
+            toolStripMenuItem4.Name = "toolStripMenuItem4";
+            toolStripMenuItem4.Size = new Size(180, 22);
+            toolStripMenuItem4.Text = "30%";
+            toolStripMenuItem4.Click += toolStripMenuItem4_Click;
+            // 
+            // toolStripMenuItem5
+            // 
+            toolStripMenuItem5.Name = "toolStripMenuItem5";
+            toolStripMenuItem5.Size = new Size(180, 22);
+            toolStripMenuItem5.Text = "40%";
+            toolStripMenuItem5.Click += toolStripMenuItem5_Click;
+            // 
+            // toolStripMenuItem6
+            // 
+            toolStripMenuItem6.Name = "toolStripMenuItem6";
+            toolStripMenuItem6.Size = new Size(180, 22);
+            toolStripMenuItem6.Text = "50%";
+            toolStripMenuItem6.Click += toolStripMenuItem6_Click;
+            // 
+            // toolStripMenuItem7
+            // 
+            toolStripMenuItem7.Name = "toolStripMenuItem7";
+            toolStripMenuItem7.Size = new Size(180, 22);
+            toolStripMenuItem7.Text = "60%";
+            toolStripMenuItem7.Click += toolStripMenuItem7_Click;
+            // 
+            // toolStripMenuItem8
+            // 
+            toolStripMenuItem8.Name = "toolStripMenuItem8";
+            toolStripMenuItem8.Size = new Size(180, 22);
+            toolStripMenuItem8.Text = "70%";
+            toolStripMenuItem8.Click += toolStripMenuItem8_Click;
+            // 
+            // toolStripMenuItem9
+            // 
+            toolStripMenuItem9.Name = "toolStripMenuItem9";
+            toolStripMenuItem9.Size = new Size(180, 22);
+            toolStripMenuItem9.Text = "80%";
+            toolStripMenuItem9.Click += toolStripMenuItem9_Click;
+            // 
+            // toolStripMenuItem10
+            // 
+            toolStripMenuItem10.Name = "toolStripMenuItem10";
+            toolStripMenuItem10.Size = new Size(180, 22);
+            toolStripMenuItem10.Text = "90%";
+            toolStripMenuItem10.Click += toolStripMenuItem10_Click;
+            // 
+            // toolStripMenuItem11
+            // 
+            toolStripMenuItem11.Checked = true;
+            toolStripMenuItem11.CheckState = CheckState.Checked;
+            toolStripMenuItem11.Name = "toolStripMenuItem11";
+            toolStripMenuItem11.Size = new Size(180, 22);
+            toolStripMenuItem11.Text = "100%";
+            toolStripMenuItem11.Click += toolStripMenuItem11_Click;
             // 
             // statusStrip1
             // 
@@ -240,5 +349,18 @@
         private ToolStripStatusLabel lengthLabel;
         private ToolStripStatusLabel timeLabel;
         private ToolStripStatusLabel titleLabel;
+        private ToolStripMenuItem optionsToolStripMenuItem;
+        private ToolStripMenuItem enableHardwareDecodeToolStripMenuItem;
+        private ToolStripMenuItem volumeToolStripMenuItem;
+        private ToolStripMenuItem toolStripMenuItem2;
+        private ToolStripMenuItem toolStripMenuItem3;
+        private ToolStripMenuItem toolStripMenuItem4;
+        private ToolStripMenuItem toolStripMenuItem5;
+        private ToolStripMenuItem toolStripMenuItem6;
+        private ToolStripMenuItem toolStripMenuItem7;
+        private ToolStripMenuItem toolStripMenuItem8;
+        private ToolStripMenuItem toolStripMenuItem9;
+        private ToolStripMenuItem toolStripMenuItem10;
+        private ToolStripMenuItem toolStripMenuItem11;
     }
 }
