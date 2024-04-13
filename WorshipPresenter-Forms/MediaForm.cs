@@ -16,7 +16,9 @@ namespace WorshipPresenter_Forms
         public MediaForm()
         {
             Core.Initialize();
-            LibVLC = new LibVLC();
+            //VLC documentation is backwards dvdsub-transparency disables transparency.
+            //LibVLC = new LibVLC("--no-dvdsub-transparency");
+            LibVLC = new LibVLC("--dvdsub-transparency");
             MediaPlayer = new MediaPlayer(LibVLC);
             MediaPlayer.EnableHardwareDecoding = true;
             MediaPlayer.Volume = 100;
