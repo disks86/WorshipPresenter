@@ -29,7 +29,7 @@ namespace WorshipPresenter_Forms
                 {
 
                 }
-                toolStripStatusLabel1.Text = $"Currently {CurrentMediaStatus} '{CurrentMediaFilename}'";
+                toolStripStatusLabel1.Text = $@"Currently {CurrentMediaStatus} '{CurrentMediaFilename}'";
             }
         }
 
@@ -44,7 +44,7 @@ namespace WorshipPresenter_Forms
                     {
                         CurrentMediaFilename = $"dvd:///{drive}:";
                         MediaForm.MediaPlayer.Media = new Media(MediaForm.LibVLC, new Uri(CurrentMediaFilename));
-                        toolStripStatusLabel1.Text = $"Currently {CurrentMediaStatus} '{CurrentMediaFilename}'";
+                        toolStripStatusLabel1.Text = $@"Currently {CurrentMediaStatus} '{CurrentMediaFilename}'";
                         return;
                     }
                 }
@@ -115,36 +115,36 @@ namespace WorshipPresenter_Forms
 
         private void MediaPlayer_TitleChanged(object? sender, MediaPlayerTitleChangedEventArgs e)
         {
-            titleLabel.Text = $"Title:{e.Title}";
+            titleLabel.Text = $@"Title:{e.Title}";
         }
 
         private void MediaPlayer_TimeChanged(object? sender, MediaPlayerTimeChangedEventArgs e)
         {
-            timeLabel.Text = $"Time:{e.Time}";
+            timeLabel.Text = $@"Time:{e.Time}";
         }
 
         private void MediaPlayer_Opening(object? sender, EventArgs e)
         {
             CurrentMediaStatus = "opened";
-            toolStripStatusLabel1.Text = $"Currently {CurrentMediaStatus} '{CurrentMediaFilename}'";
+            toolStripStatusLabel1.Text = $@"Currently {CurrentMediaStatus} '{CurrentMediaFilename}'";
         }
 
         private void MediaPlayer_Stopped(object? sender, EventArgs e)
         {
             CurrentMediaStatus = "stopped";
-            toolStripStatusLabel1.Text = $"Currently {CurrentMediaStatus} '{CurrentMediaFilename}'";
+            toolStripStatusLabel1.Text = $@"Currently {CurrentMediaStatus} '{CurrentMediaFilename}'";
         }
 
         private void MediaPlayer_Paused(object? sender, EventArgs e)
         {
             CurrentMediaStatus = "paused";
-            toolStripStatusLabel1.Text = $"Currently {CurrentMediaStatus} '{CurrentMediaFilename}'";
+            toolStripStatusLabel1.Text = $@"Currently {CurrentMediaStatus} '{CurrentMediaFilename}'";
         }
 
         private void MediaPlayer_Playing(object? sender, EventArgs e)
         {
             CurrentMediaStatus = "playing";
-            toolStripStatusLabel1.Text = $"Currently {CurrentMediaStatus} '{CurrentMediaFilename}'";
+            toolStripStatusLabel1.Text = $@"Currently {CurrentMediaStatus} '{CurrentMediaFilename}'";
         }
 
         private void MediaPlayer_MediaChanged(object? sender, MediaPlayerMediaChangedEventArgs e)
@@ -158,12 +158,12 @@ namespace WorshipPresenter_Forms
             {
 
             }
-            toolStripStatusLabel1.Text = $"Currently {CurrentMediaStatus} '{CurrentMediaFilename}'";
+            toolStripStatusLabel1.Text = $@"Currently {CurrentMediaStatus} '{CurrentMediaFilename}'";
         }
 
         private void MediaPlayer_LengthChanged(object? sender, MediaPlayerLengthChangedEventArgs e)
         {
-            lengthLabel.Text = $"Length:{e.Length}";
+            lengthLabel.Text = $@"Length:{e.Length}";
         }
 
         private void enableHardwareDecodeToolStripMenuItem_Click(object sender, EventArgs e)
