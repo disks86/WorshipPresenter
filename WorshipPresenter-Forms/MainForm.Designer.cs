@@ -68,6 +68,7 @@
             openFileDialog1 = new OpenFileDialog();
             instructionLabel = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            browserToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
@@ -90,29 +91,29 @@
             // 
             // openToolStripMenuItem
             // 
-            openToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { videoFileToolStripMenuItem, dVDToolStripMenuItem });
+            openToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { videoFileToolStripMenuItem, dVDToolStripMenuItem, browserToolStripMenuItem });
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(103, 22);
+            openToolStripMenuItem.Size = new Size(180, 22);
             openToolStripMenuItem.Text = "Open";
             // 
             // videoFileToolStripMenuItem
             // 
             videoFileToolStripMenuItem.Name = "videoFileToolStripMenuItem";
-            videoFileToolStripMenuItem.Size = new Size(125, 22);
+            videoFileToolStripMenuItem.Size = new Size(180, 22);
             videoFileToolStripMenuItem.Text = "Video File";
             videoFileToolStripMenuItem.Click += videoFileToolStripMenuItem_Click;
             // 
             // dVDToolStripMenuItem
             // 
             dVDToolStripMenuItem.Name = "dVDToolStripMenuItem";
-            dVDToolStripMenuItem.Size = new Size(125, 22);
+            dVDToolStripMenuItem.Size = new Size(180, 22);
             dVDToolStripMenuItem.Text = "DVD";
             dVDToolStripMenuItem.Click += dVDToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(103, 22);
+            exitToolStripMenuItem.Size = new Size(180, 22);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -190,63 +191,63 @@
             // toolStripMenuItem2
             // 
             toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(180, 22);
+            toolStripMenuItem2.Size = new Size(102, 22);
             toolStripMenuItem2.Text = "10%";
             toolStripMenuItem2.Click += toolStripMenuItem2_Click;
             // 
             // toolStripMenuItem3
             // 
             toolStripMenuItem3.Name = "toolStripMenuItem3";
-            toolStripMenuItem3.Size = new Size(180, 22);
+            toolStripMenuItem3.Size = new Size(102, 22);
             toolStripMenuItem3.Text = "20%";
             toolStripMenuItem3.Click += toolStripMenuItem3_Click;
             // 
             // toolStripMenuItem4
             // 
             toolStripMenuItem4.Name = "toolStripMenuItem4";
-            toolStripMenuItem4.Size = new Size(180, 22);
+            toolStripMenuItem4.Size = new Size(102, 22);
             toolStripMenuItem4.Text = "30%";
             toolStripMenuItem4.Click += toolStripMenuItem4_Click;
             // 
             // toolStripMenuItem5
             // 
             toolStripMenuItem5.Name = "toolStripMenuItem5";
-            toolStripMenuItem5.Size = new Size(180, 22);
+            toolStripMenuItem5.Size = new Size(102, 22);
             toolStripMenuItem5.Text = "40%";
             toolStripMenuItem5.Click += toolStripMenuItem5_Click;
             // 
             // toolStripMenuItem6
             // 
             toolStripMenuItem6.Name = "toolStripMenuItem6";
-            toolStripMenuItem6.Size = new Size(180, 22);
+            toolStripMenuItem6.Size = new Size(102, 22);
             toolStripMenuItem6.Text = "50%";
             toolStripMenuItem6.Click += toolStripMenuItem6_Click;
             // 
             // toolStripMenuItem7
             // 
             toolStripMenuItem7.Name = "toolStripMenuItem7";
-            toolStripMenuItem7.Size = new Size(180, 22);
+            toolStripMenuItem7.Size = new Size(102, 22);
             toolStripMenuItem7.Text = "60%";
             toolStripMenuItem7.Click += toolStripMenuItem7_Click;
             // 
             // toolStripMenuItem8
             // 
             toolStripMenuItem8.Name = "toolStripMenuItem8";
-            toolStripMenuItem8.Size = new Size(180, 22);
+            toolStripMenuItem8.Size = new Size(102, 22);
             toolStripMenuItem8.Text = "70%";
             toolStripMenuItem8.Click += toolStripMenuItem8_Click;
             // 
             // toolStripMenuItem9
             // 
             toolStripMenuItem9.Name = "toolStripMenuItem9";
-            toolStripMenuItem9.Size = new Size(180, 22);
+            toolStripMenuItem9.Size = new Size(102, 22);
             toolStripMenuItem9.Text = "80%";
             toolStripMenuItem9.Click += toolStripMenuItem9_Click;
             // 
             // toolStripMenuItem10
             // 
             toolStripMenuItem10.Name = "toolStripMenuItem10";
-            toolStripMenuItem10.Size = new Size(180, 22);
+            toolStripMenuItem10.Size = new Size(102, 22);
             toolStripMenuItem10.Text = "90%";
             toolStripMenuItem10.Click += toolStripMenuItem10_Click;
             // 
@@ -255,7 +256,7 @@
             toolStripMenuItem11.Checked = true;
             toolStripMenuItem11.CheckState = CheckState.Checked;
             toolStripMenuItem11.Name = "toolStripMenuItem11";
-            toolStripMenuItem11.Size = new Size(180, 22);
+            toolStripMenuItem11.Size = new Size(102, 22);
             toolStripMenuItem11.Text = "100%";
             toolStripMenuItem11.Click += toolStripMenuItem11_Click;
             // 
@@ -269,7 +270,7 @@
             // offToolStripMenuItem
             // 
             offToolStripMenuItem.Name = "offToolStripMenuItem";
-            offToolStripMenuItem.Size = new Size(180, 22);
+            offToolStripMenuItem.Size = new Size(112, 22);
             offToolStripMenuItem.Text = "Off";
             offToolStripMenuItem.Click += offToolStripMenuItem_Click;
             // 
@@ -278,14 +279,14 @@
             defaultToolStripMenuItem.Checked = true;
             defaultToolStripMenuItem.CheckState = CheckState.Checked;
             defaultToolStripMenuItem.Name = "defaultToolStripMenuItem";
-            defaultToolStripMenuItem.Size = new Size(180, 22);
+            defaultToolStripMenuItem.Size = new Size(112, 22);
             defaultToolStripMenuItem.Text = "Default";
             defaultToolStripMenuItem.Click += defaultToolStripMenuItem_Click;
             // 
             // maxToolStripMenuItem
             // 
             maxToolStripMenuItem.Name = "maxToolStripMenuItem";
-            maxToolStripMenuItem.Size = new Size(180, 22);
+            maxToolStripMenuItem.Size = new Size(112, 22);
             maxToolStripMenuItem.Text = "Max";
             maxToolStripMenuItem.Click += maxToolStripMenuItem_Click;
             // 
@@ -338,6 +339,13 @@
             // 
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
+            // 
+            // browserToolStripMenuItem
+            // 
+            browserToolStripMenuItem.Name = "browserToolStripMenuItem";
+            browserToolStripMenuItem.Size = new Size(180, 22);
+            browserToolStripMenuItem.Text = "Browser";
+            browserToolStripMenuItem.Click += browserToolStripMenuItem_Click;
             // 
             // MainForm
             // 
@@ -400,5 +408,6 @@
         private ToolStripMenuItem offToolStripMenuItem;
         private ToolStripMenuItem defaultToolStripMenuItem;
         private ToolStripMenuItem maxToolStripMenuItem;
+        private ToolStripMenuItem browserToolStripMenuItem;
     }
 }

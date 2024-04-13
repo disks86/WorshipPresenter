@@ -9,10 +9,18 @@ namespace WorshipPresenter_Forms
             InitializeComponent();
         }
 
+        public enum MediaType
+        {
+            Video,
+            Browser
+        }
+
         private readonly string[] mDrives = new string[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
         public MediaForm MediaForm { get; set; } = new MediaForm();
+        public BrowserForm BrowserForm { get; set; } = new BrowserForm();
         public string CurrentMediaFilename { get; set; } = string.Empty;
         public string CurrentMediaStatus { get; set; } = string.Empty;
+        public MediaType CurrentMediaType { get; set; } = MediaType.Video;
 
         private void videoFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -24,6 +32,7 @@ namespace WorshipPresenter_Forms
                 try
                 {
                     CurrentMediaFilename = Path.GetFileName(CurrentMediaFilename);
+                    CurrentMediaType = MediaType.Video;
                 }
                 catch (Exception)
                 {
@@ -45,6 +54,7 @@ namespace WorshipPresenter_Forms
                         CurrentMediaFilename = $"dvd:///{drive}:";
                         MediaForm.MediaPlayer.Media = new Media(MediaForm.LibVLC, new Uri(CurrentMediaFilename));
                         toolStripStatusLabel1.Text = $@"Currently {CurrentMediaStatus} '{CurrentMediaFilename}'";
+                        CurrentMediaType = MediaType.Video;
                         return;
                     }
                 }
@@ -70,15 +80,28 @@ namespace WorshipPresenter_Forms
 
             if (secondScreen != null)
             {
-                MediaForm.StartPosition = FormStartPosition.Manual;
-                MediaForm.Location = secondScreen.WorkingArea.Location;
-                MediaForm.Show();
+                switch (CurrentMediaType)
+                {
+                    case MediaType.Video:
+                        MediaForm.StartPosition = FormStartPosition.Manual;
+                        MediaForm.Location = secondScreen.WorkingArea.Location;
+                        MediaForm.Show();
+                        break;
+                    case MediaType.Browser:
+                        BrowserForm.StartPosition = FormStartPosition.Manual;
+                        BrowserForm.Location = secondScreen.WorkingArea.Location;
+                        BrowserForm.Show();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
         private void stopProjectingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MediaForm.Hide();
+            BrowserForm.Hide();
         }
 
         private void playButtonToolStripMenuItem_Click(object sender, EventArgs e)
@@ -356,6 +379,20 @@ namespace WorshipPresenter_Forms
             maxToolStripMenuItem.Checked = true;
 
             MediaForm.MediaPlayer.FileCaching = 60000;
+        }
+
+        private void browserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var url = Microsoft.VisualBasic.Interaction.InputBox("Enter Url.");
+            if (!url.StartsWith("http"))
+            {
+                url = "https://" + url;
+            }
+            BrowserForm.BrowserView.Source = new Uri(url);
+            CurrentMediaStatus = "Viewing";
+            CurrentMediaType = MediaType.Browser;  
+            CurrentMediaFilename = BrowserForm.BrowserView.Source.ToString();
+            toolStripStatusLabel1.Text = $@"Currently {CurrentMediaStatus} '{CurrentMediaFilename}'";        
         }
     }
 }
